@@ -76,6 +76,7 @@ public class DemandeServlet extends HttpServlet {
         String number = request.getParameter("number");
         StatusDemande statusDemande = StatusDemande.valueOf(status);
         request.setAttribute("employes", demandeService.UpdateStatus(statusDemande,number));
+        request.setAttribute("boolean", demandeService.insertStatusHistory(number));
         displayAllDemandes(request,response);
     }
     private void displayAllDemandes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

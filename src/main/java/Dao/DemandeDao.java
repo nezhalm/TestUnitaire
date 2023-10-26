@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface DemandeDao extends GlobaleDao<Demande> {
     public Optional<Demande> UpdateStatus(StatusDemande status, String number) ;
     public List<Demande> searchDemandesByLabel(String label);
-    public List<Demande> searchDemandesByDate(LocalDate label) ;
+    public List<Demande> searchDemandesByDate(LocalDate label);
 }

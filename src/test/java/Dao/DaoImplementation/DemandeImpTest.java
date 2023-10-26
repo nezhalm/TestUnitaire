@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 public class DemandeImpTest {
@@ -20,7 +21,7 @@ public class DemandeImpTest {
     }
 
     @Test
-    public void createTest() {
+    public Demande createTest() {
         String number = ExtraMethods.generateUniqueCode(6);
         Employe employe = new Employe();
         Agence agence = new Agence();
@@ -43,5 +44,13 @@ public class DemandeImpTest {
         );
         Optional<Demande> newDemande = demandeImp.ajouter(demande);
         assertTrue(newDemande.isPresent());
+        return newDemande.get();
+    }
+
+    @Test
+    public void testAfficheList() {
+            List<Demande> List = demandeImp.afficheList();
+            assertNotNull(List);
+            assertFalse(List.isEmpty());
     }
 }
